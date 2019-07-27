@@ -4,21 +4,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class PatientInfoResponse {
-	
+
 	private StatusBlock statusBlock;
 	private PatientDetails patientDetails;
+
 	public StatusBlock getStatusBlock() {
 		return statusBlock;
 	}
+
 	public void setStatusBlock(StatusBlock statusBlock) {
 		this.statusBlock = statusBlock;
 	}
+
 	public PatientDetails getPatientDetails() {
 		return patientDetails;
 	}
+
 	public void setPatientDetails(PatientDetails patientDetails) {
 		this.patientDetails = patientDetails;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -29,7 +34,5 @@ public class PatientInfoResponse {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
 
 }

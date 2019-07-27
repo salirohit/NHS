@@ -1,6 +1,3 @@
-/** @CopyRight 2019 NHS. All Rights are reserved
-*
-*/
 
 package com.nhs.patient.info.resource.impl;
 
@@ -22,10 +19,6 @@ import com.nhs.patient.info.process.PatientInfoProcess;
 import com.nhs.patient.info.process.beans.PatientInfoProcessRequest;
 import com.nhs.patient.info.process.beans.PatientInfoProcessResponse;
 import com.nhs.patient.info.process.impl.PatientInfoProcessImpl;
-/**
-* @author hans by Jul 5, 2019
-*
-*/
 import com.nhs.patient.info.resource.PatientInfoResource;
 import com.nhs.patient.info.resource.beans.PatientInfoRequest;
 import com.nhs.patient.info.resource.beans.PatientInfoResponse;
@@ -37,12 +30,12 @@ import com.nhs.patient.info.resource.validator.PatientInfoValidator;
 
 @Path("/ncap")
 public class PatientInfoResourceImpl implements PatientInfoResource {
-	@Path("/getPatient/{patientID}")
+	@Path("/getPatient/{patientId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
-	public PatientInfoResponse getPatient( @PathParam("patientID")  String patientID) {
+	public PatientInfoResponse getPatient(@PathParam("patientID") String patientID) {
 		PatientInfoResponse response = null;
-		System.out.println("%%%%%%%%%%"+patientID);
+		System.out.println("Entered into getPatient" + patientID);
 		// 1. Get the request from consumer
 		try {
 			// 2. Validate the request
@@ -74,7 +67,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 	@POST
 	public PatientInfoResponse createPatient(PatientInfoRequest request) {
 		PatientInfoResponse response = null;
-		System.out.println("@@@@@Entered into createPatient"+request);
+		System.out.println("Entered into createPatient" + request);
 		// 1. Get the request from consumer
 		try {
 			// 2. Validate the request
@@ -115,7 +108,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 			response.setStatusBlock(statusBlock);
 			e.printStackTrace();
 		}
-		System.out.println("@@@@@Exit from createPatient"+request);
+		System.out.println("Exit from createPatient" + request);
 		return response;
 	}
 
@@ -125,7 +118,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 	@PUT
 	public PatientInfoResponse updatePatient(PatientInfoRequest request) throws BusinessException, SystemException {
 		PatientInfoResponse response = null;
-		System.out.println("Entered into updatePatient"+request);
+		System.out.println("Entered into updatePatient" + request);
 		// 1. Get the request from consumer
 		try {
 			// 2. Validate the request
@@ -166,7 +159,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 			response.setStatusBlock(statusBlock);
 			e.printStackTrace();
 		}
-		System.out.println("Exit from updatePatient"+request);
+		System.out.println("Exit from updatePatient" + request);
 		return null;
 	}
 
@@ -191,7 +184,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 		// 4. Call PL and get response
 		PatientInfoProcess process = new PatientInfoProcessImpl();
 		List<PatientInfoProcessResponse> processResp = process.searchPatient(processReq);
-		System.out.println("---------------"+processResp);
+		System.out.println("---------------" + processResp);
 		// 5. Prepare the resource response, get list of patient details from
 		// process response and prepare resource resp
 		PatientInfoResponseBuilder respBuilder = new PatientInfoResponseBuilder();
@@ -217,9 +210,9 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 		request.setUpdatedBy("Aish");
 
 		PatientInfoResponse resp = resourceImpl.createPatient(request);
-		System.out.println(resp);
-	//	PatientInfoResponse patient = resourceImpl.getPatient("100");
-		//System.out.println(patient);
+		System.out.println("Response Is:" + resp);
+		// PatientInfoResponse patient = resourceImpl.getPatient("100");
+		// System.out.println(patient);
 	}
 
 	@GET

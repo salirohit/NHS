@@ -1,12 +1,6 @@
-/** @CopyRight 2019 NHS. All Rights are reserved
-*
-*/
 
 package com.nhs.patient.info.dao.beans;
-/**
-* @author hans by Jul 5, 2019
-*
-*/
+
 public class PatientInfoDAOResponse {
 
 	private String respCode;
@@ -23,90 +17,119 @@ public class PatientInfoDAOResponse {
 	private String updateDate;
 	private String createdBy;
 	private String updatedBy;
+
 	public String getRespCode() {
 		return respCode;
 	}
+
 	public void setRespCode(String respCode) {
 		this.respCode = respCode;
 	}
+
 	public String getRespMsg() {
 		return respMsg;
 	}
+
 	public void setRespMsg(String respMsg) {
 		this.respMsg = respMsg;
 	}
+
 	public String getFname() {
 		return fname;
 	}
+
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
+
 	public String getLname() {
 		return lname;
 	}
+
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
+
 	public String getDob() {
 		return dob;
 	}
+
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
+
 	public String getPostalcode() {
 		return postalcode;
 	}
+
 	public void setPostalcode(String postalcode) {
 		this.postalcode = postalcode;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
 	public String getNationalIdentifierType() {
 		return nationalIdentifierType;
 	}
+
 	public void setNationalIdentifierType(String nationalIdentifierType) {
 		this.nationalIdentifierType = nationalIdentifierType;
 	}
+
 	public String getNationalPatientId() {
 		return nationalPatientId;
 	}
+
 	public void setNationalPatientId(String nationalPatientId) {
 		this.nationalPatientId = nationalPatientId;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getCreateDate() {
 		return createDate;
 	}
+
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
+
 	public String getUpdateDate() {
 		return updateDate;
 	}
+
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
 	}
+
 	public String getCreatedBy() {
 		return createdBy;
 	}
+
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
+
 	public String getUpdatedBy() {
 		return updatedBy;
 	}
+
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -141,5 +164,5 @@ public class PatientInfoDAOResponse {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 }

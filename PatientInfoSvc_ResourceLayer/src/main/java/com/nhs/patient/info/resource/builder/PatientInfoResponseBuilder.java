@@ -1,6 +1,3 @@
-/** @CopyRight 2019 NHS. All Rights are reserved
-*
-*/
 package com.nhs.patient.info.resource.builder;
 
 import java.util.List;
@@ -10,21 +7,16 @@ import com.nhs.patient.info.resource.beans.PatientDetails;
 import com.nhs.patient.info.resource.beans.PatientInfoResponse;
 import com.nhs.patient.info.resource.beans.StatusBlock;
 
-/**
-* @author hans by Jul 5, 2019
-*
-*/
 public class PatientInfoResponseBuilder {
 
-	public PatientInfoResponse buildResourceResponse (PatientInfoProcessResponse processResp) {
-		
+	public PatientInfoResponse buildResourceResponse(PatientInfoProcessResponse processResp) {
+
 		PatientInfoResponse response = new PatientInfoResponse();
-		
-		StatusBlock statusBlock =new StatusBlock();
+
+		StatusBlock statusBlock = new StatusBlock();
 		statusBlock.setRespCode(processResp.getRespCode());
 		statusBlock.setRespMsg(processResp.getRespMsg());
-		response.setStatusBlock(statusBlock);
-		
+
 		PatientDetails patientDetails = new PatientDetails();
 		patientDetails.setCreateDate(processResp.getCreateDate());
 		patientDetails.setDob(processResp.getDob());
@@ -36,13 +28,15 @@ public class PatientInfoResponseBuilder {
 		patientDetails.setNationalPatientId(processResp.getNationalPatientId());
 		patientDetails.setPostalcode(processResp.getPostalcode());
 		patientDetails.setUpdateDate(processResp.getUpdateDate());
+
+		response.setStatusBlock(statusBlock);
 		response.setPatientDetails(patientDetails);
 		return response;
 	}
 
 	public PatientInfoResponse buildPatientDetails(List<PatientInfoProcessResponse> processResp) {
 		PatientInfoResponse response = new PatientInfoResponse();
-	
+
 		return null;
 	}
 }

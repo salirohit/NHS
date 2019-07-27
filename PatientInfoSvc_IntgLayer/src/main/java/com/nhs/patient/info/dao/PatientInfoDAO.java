@@ -11,7 +11,7 @@ public interface PatientInfoDAO {
 
 	PatientInfoDAOResponse getPatient(String patientID);
 	PatientInfoDAOResponse createPatient(PatientInfoDAORequest request) throws BusinessException, SystemException;
-	PatientInfoDAOResponse updatePatient(PatientInfoDAORequest daoReq) throws BusinessException, SystemException;
-	List<PatientInfoDAOResponse> searchPatient(PatientInfoDAORequest daoReq);
+	PatientInfoDAOResponse updatePatient(PatientInfoDAORequest request) throws BusinessException, SystemException;
+	List<PatientInfoDAOResponse> searchPatient(PatientInfoDAORequest request);
 
 }

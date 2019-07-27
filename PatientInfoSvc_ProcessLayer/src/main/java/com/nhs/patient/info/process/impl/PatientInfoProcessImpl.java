@@ -67,11 +67,9 @@ public class PatientInfoProcessImpl implements PatientInfoProcess {
 		// 3. Call DAO and get response
 		PatientInfoDAO dao = new PatientInfoDAOImpl();
 		List<PatientInfoDAOResponse> daoRespList = dao.searchPatient(daoReq);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@" + daoRespList);
 		// 4. Prepare the process response
 		PatientInfoProcessResponseBuilder respBuilder = new PatientInfoProcessResponseBuilder();
 		List<PatientInfoProcessResponse> processRespList = respBuilder.buildPatientDetails(daoRespList, processReq);
-		System.out.println("$$$$$$$$$$$$$" + processRespList);
 		return processRespList;
 	}
 

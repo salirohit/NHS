@@ -1,7 +1,4 @@
 package com.nhs.patient.info.dao.impl;
-/** @CopyRight 2019 NHS. All Rights are reserved
-*
-*/
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +9,6 @@ import com.nhs.patient.info.dao.beans.PatientInfoDAOResponse;
 import com.nhs.patient.info.dao.exception.BusinessException;
 import com.nhs.patient.info.dao.exception.SystemException;
 
-/**
- * @author hans by Jul 5, 2019
- *
- */
 public class PatientInfoDAOImpl implements PatientInfoDAO {
 
 	public PatientInfoDAOResponse getPatient(String patientID) {
@@ -24,10 +17,10 @@ public class PatientInfoDAOImpl implements PatientInfoDAO {
 		// 2. Prepare the DB req using DAO req
 		// 3. Call DB and get the DB resp
 		PatientInfoDAOResponse daoResp = new PatientInfoDAOResponse();
+		daoResp.setFname("Rohit");
 		daoResp.setCreateDate("10-08-2018");
 		daoResp.setCreatedBy("ADMIN");
 		daoResp.setDob("10-08-1992");
-		daoResp.setFname("Hans");
 		daoResp.setGender("Male");
 		daoResp.setId("101");
 		daoResp.setLname("Tandel");
@@ -43,8 +36,48 @@ public class PatientInfoDAOImpl implements PatientInfoDAO {
 
 	}
 
-	public PatientInfoDAOResponse createPatient(PatientInfoDAORequest request)
-			throws BusinessException, SystemException {
+	public PatientInfoDAOResponse createPatient(PatientInfoDAORequest request)throws BusinessException, SystemException {
+		// 1. Get the req from PL
+		// 2. Prepare the DB req using DAO req
+		// 3. Call DB and get the DB resp
+		System.out.println("ENTER: PatientInfoDAOImpl.createPatient()");
+		PatientInfoDAOResponse daoResp = new PatientInfoDAOResponse();
+
+		try {
+			String dbResponseCode = "0";
+			String dbResponseMsg = "success";
+
+			if ("0".equals(dbResponseCode)) {
+				daoResp.setCreateDate("10-08-2018");
+				daoResp.setCreatedBy("ADMIN");
+				daoResp.setDob("10-08-1992");
+				daoResp.setFname("Hans");
+				daoResp.setGender("Male");
+				daoResp.setId("101");
+				daoResp.setLname("Tandel");
+				daoResp.setNationalIdentifierType(null);
+				daoResp.setNationalPatientId(null);
+				daoResp.setPostalcode("396450");
+				daoResp.setRespCode(dbResponseCode);
+				daoResp.setRespMsg(dbResponseMsg);
+			} else if ("111".equals(dbResponseCode) || "112".equals(dbResponseCode) || "113".equals(dbResponseCode)) {
+				throw new BusinessException(dbResponseCode, dbResponseMsg);
+			} else {
+				throw new SystemException(dbResponseCode, dbResponseMsg);
+			}
+		} catch (BusinessException be) {
+			be.printStackTrace();
+			throw be;
+		} catch (SystemException se) {
+			se.printStackTrace();
+			throw se;
+		}
+		System.out.println("EXIT: PatientInfoDAOImpl.createPatient()");
+
+		return daoResp;
+	}
+
+	public PatientInfoDAOResponse updatePatient(PatientInfoDAORequest request)throws BusinessException, SystemException {
 		// 1. Get the req from PL
 		// 2. Prepare the DB req using DAO req
 		// 3. Call DB and get the DB resp
@@ -84,48 +117,7 @@ public class PatientInfoDAOImpl implements PatientInfoDAO {
 		return daoResp;
 	}
 
-	public PatientInfoDAOResponse updatePatient(PatientInfoDAORequest daoReq)
-			throws BusinessException, SystemException {
-		// 1. Get the req from PL
-		// 2. Prepare the DB req using DAO req
-		// 3. Call DB and get the DB resp
-		System.out.println("ENTER: PatientInfoDAOImpl.createPatient()");
-		PatientInfoDAOResponse daoResp = new PatientInfoDAOResponse();
-
-		try {
-			String dbResponseCode = "0";
-			String dbResponseMsg = "success";
-			if ("0".equals(dbResponseCode)) {
-				daoResp.setCreateDate("10-08-2018");
-				daoResp.setCreatedBy("ADMIN");
-				daoResp.setDob("10-08-1992");
-				daoResp.setFname("Hans");
-				daoResp.setGender("Male");
-				daoResp.setId("101");
-				daoResp.setLname("Tandel");
-				daoResp.setNationalIdentifierType(null);
-				daoResp.setNationalPatientId(null);
-				daoResp.setPostalcode("396450");
-				daoResp.setRespCode(dbResponseCode);
-				daoResp.setRespMsg(dbResponseMsg);
-			} else if ("111".equals(dbResponseCode) || "112".equals(dbResponseCode) || "113".equals(dbResponseCode)) {
-				throw new BusinessException(dbResponseCode, dbResponseMsg);
-			} else {
-				throw new SystemException(dbResponseCode, dbResponseMsg);
-			}
-		} catch (BusinessException be) {
-			be.printStackTrace();
-			throw be;
-		} catch (SystemException se) {
-			se.printStackTrace();
-			throw se;
-		}
-		System.out.println("EXIT: PatientInfoDAOImpl.createPatient()");
-
-		return daoResp;
-	}
-
-	public List<PatientInfoDAOResponse> searchPatient(PatientInfoDAORequest daoReq) {
+	public List<PatientInfoDAOResponse> searchPatient(PatientInfoDAORequest request) {
 		// 1. Get the req from PL
 		// 2. Prepare the DB req using DAO req
 		// 3. Call DB and get the DB resp

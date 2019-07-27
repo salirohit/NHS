@@ -1,11 +1,10 @@
 package com.nhs.patient.info.resource.exception;
 
-public class PatientInfoReqInvalidException extends Exception{
+public class PatientInfoReqInvalidException extends Exception {
 
 	private String respCode;
 	private String respMsg;
-	
-	
+
 	public PatientInfoReqInvalidException(String respCode, String respMsg) {
 		this.respCode = respCode;
 		this.respMsg = respMsg;
@@ -14,11 +13,11 @@ public class PatientInfoReqInvalidException extends Exception{
 	public String getRespCode() {
 		return respCode;
 	}
-	
+
 	public String getRespMsg() {
 		return respMsg;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -29,6 +28,5 @@ public class PatientInfoReqInvalidException extends Exception{
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
+
 }

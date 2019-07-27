@@ -1,6 +1,3 @@
-/** @CopyRight 2019 NHS. All Rights are reserved
-*
-*/
 package com.nhs.patient.info.process.builder;
 
 import java.util.ArrayList;
@@ -10,10 +7,6 @@ import com.nhs.patient.info.dao.beans.PatientInfoDAOResponse;
 import com.nhs.patient.info.process.beans.PatientInfoProcessRequest;
 import com.nhs.patient.info.process.beans.PatientInfoProcessResponse;
 
-/**
- * @author hans by Jul 5, 2019
- *
- */
 public class PatientInfoProcessResponseBuilder {
 
 	public PatientInfoProcessResponse buildProcessResponse(PatientInfoDAOResponse daoResp) {
@@ -35,7 +28,8 @@ public class PatientInfoProcessResponseBuilder {
 		return processResp;
 	}
 
-	public List<PatientInfoProcessResponse> buildPatientDetails(List<PatientInfoDAOResponse> daoRespList, PatientInfoProcessRequest request) {
+	public List<PatientInfoProcessResponse> buildPatientDetails(List<PatientInfoDAOResponse> daoRespList,
+			PatientInfoProcessRequest request) {
 		List<PatientInfoProcessResponse> processRespList = new ArrayList<>();
 		PatientInfoProcessResponse processResp = new PatientInfoProcessResponse();
 		for (PatientInfoDAOResponse daoResp : daoRespList) {
