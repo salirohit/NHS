@@ -27,7 +27,7 @@ public class PatientInfoProcessImpl implements PatientInfoProcess {
 	}
 
 	public PatientInfoProcessResponse createPatient(PatientInfoProcessRequest processReq)
-			throws BusinessException, SystemException {
+			throws ClassNotFoundException,BusinessException, SystemException {
 		System.out.println("ENTER - PatientInfoProcessImpl.createPatient()");
 		// 1. Get the request from RL
 		// 2. Prepare the request for DAO Layer

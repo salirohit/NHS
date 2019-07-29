@@ -1,6 +1,3 @@
-/** @CopyRight 2019 NHS. All Rights are reserved
-*
-*/
 package com.nhs.patient.info.resource.impl;
 
 import java.io.IOException;
@@ -11,10 +8,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.nhs.patient.info.resource.beans.PatientInfoRequest;
 
-/**
-* @author hans by Jul 10, 2019
-*
-*/
 public class ObjectToJson {
 	
 	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {

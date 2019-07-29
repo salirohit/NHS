@@ -10,7 +10,7 @@ import com.nhs.patient.info.process.beans.PatientInfoProcessResponse;
 public interface PatientInfoProcess {
 
 	PatientInfoProcessResponse getPatient(String patientID);
-	PatientInfoProcessResponse createPatient(PatientInfoProcessRequest processReq) throws BusinessException, SystemException;
+	PatientInfoProcessResponse createPatient(PatientInfoProcessRequest processReq) throws ClassNotFoundException,BusinessException, SystemException;
 	PatientInfoProcessResponse updatePatient(PatientInfoProcessRequest processReq) throws BusinessException, SystemException;
 	List<PatientInfoProcessResponse> searchPatient(PatientInfoProcessRequest processReq);
 }

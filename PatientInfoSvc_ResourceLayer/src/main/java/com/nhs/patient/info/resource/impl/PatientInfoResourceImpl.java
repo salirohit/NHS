@@ -30,7 +30,7 @@ import com.nhs.patient.info.resource.validator.PatientInfoValidator;
 
 @Path("/ncap")
 public class PatientInfoResourceImpl implements PatientInfoResource {
-	@Path("/getPatient/{patientId}")
+	@Path("/getPatient/{patientID}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
 	public PatientInfoResponse getPatient(@PathParam("patientID") String patientID) {
@@ -65,7 +65,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@POST
-	public PatientInfoResponse createPatient(PatientInfoRequest request) {
+	public PatientInfoResponse createPatient(PatientInfoRequest request) throws ClassNotFoundException{
 		PatientInfoResponse response = null;
 		System.out.println("Entered into createPatient" + request);
 		// 1. Get the request from consumer
@@ -82,6 +82,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 			// 5. Prepare the resource response
 			PatientInfoResponseBuilder respBuilder = new PatientInfoResponseBuilder();
 			response = respBuilder.buildResourceResponse(processResp);
+			System.out.println("Exit from createPatient " + response);
 
 		} catch (PatientInfoReqInvalidException e) {
 			System.out.println("Enetred into Req invalid Exception");
@@ -193,7 +194,7 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 		return response;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		PatientInfoResourceImpl resourceImpl = new PatientInfoResourceImpl();
 
 		PatientInfoRequest request = new PatientInfoRequest();
@@ -211,8 +212,9 @@ public class PatientInfoResourceImpl implements PatientInfoResource {
 
 		PatientInfoResponse resp = resourceImpl.createPatient(request);
 		System.out.println("Response Is:" + resp);
-		// PatientInfoResponse patient = resourceImpl.getPatient("100");
-		// System.out.println(patient);
+		
+		PatientInfoResponse patient = resourceImpl.getPatient("100");
+		System.out.println(patient);
 	}
 
 	@GET

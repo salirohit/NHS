@@ -6,6 +6,6 @@ import com.nhs.patient.info.resource.beans.PatientInfoResponse;
 public interface PatientInfoResource {
 
 	PatientInfoResponse getPatient(String patientID);
-	PatientInfoResponse createPatient(PatientInfoRequest request);
+	PatientInfoResponse createPatient(PatientInfoRequest request)throws ClassNotFoundException;
 	
 }
