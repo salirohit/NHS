@@ -6,10 +6,23 @@ import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nhs.patient.info.controller.beans.PatientInfoRequest;
 import com.nhs.patient.info.controller.beans.PatientInfoResponse;
+import com.nhs.patient.info.controller.beans.StatusBlock;
+import com.nhs.patient.info.controller.builder.PatientInfoRequestBuilder;
+import com.nhs.patient.info.controller.builder.PatientInfoResponseBuilder;
+import com.nhs.patient.info.controller.exception.PatientInfoReqInvalidException;
+import com.nhs.patient.info.controller.validator.PatientInfoValidator;
+import com.nhs.patient.info.dao.exception.BusinessException;
+import com.nhs.patient.info.dao.exception.SystemException;
+import com.nhs.patient.info.process.PatientInfoProcess;
+import com.nhs.patient.info.process.beans.PatientInfoProcessRequest;
+import com.nhs.patient.info.process.beans.PatientInfoProcessResponse;
+import com.nhs.patient.info.process.impl.PatientInfoProcessImpl;
 
 
 @RestController
@@ -45,7 +58,9 @@ public class PatientInfoController  {
 		return response;
 	}
 
-	public PatientInfoResponse createPatient(PatientInfoRequest request){
+	@RequestMapping(value = "/createPatient", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	@ResponseBody
+	public PatientInfoResponse createPatient(PatientInfoRequest request) throws ClassNotFoundException{
 		PatientInfoResponse response = null;
 		System.out.println("Entered into createPatient" + request);
 		// 1. Get the request from consumer
@@ -93,6 +108,8 @@ public class PatientInfoController  {
 		return response;
 	}
 
+	@RequestMapping(value = "/updatePatient", method = RequestMethod.PUT, produces = "application/json", consumes = "application/json")
+	@ResponseBody
 	public PatientInfoResponse updatePatient(PatientInfoRequest request) throws BusinessException, SystemException {
 		PatientInfoResponse response = null;
 		System.out.println("Entered into updatePatient" + request);
@@ -140,10 +157,12 @@ public class PatientInfoController  {
 		return null;
 	}
 
-	public PatientInfoResponse searchPatient(@QueryParam("fname") String fname, @QueryParam("lname") String lname,
-			@QueryParam("postalcode") String postalcode, @QueryParam("gender") String gender,
-			@QueryParam("patientId") String patientId, @QueryParam("dob") String dob,
-			@QueryParam("pageSize") String pageSize, @QueryParam("pageNumber") String pageNumber) {
+	@RequestMapping(value = "/serachPatient", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public PatientInfoResponse searchPatient(@RequestParam("fname") String fname, @RequestParam("lname") String lname,
+			@RequestParam("postalcode") String postalcode, @RequestParam("gender") String gender,
+			@RequestParam("patientId") String patientId, @RequestParam("dob") String dob,
+			@RequestParam("pageSize") String pageSize, @RequestParam("pageNumber") String pageNumber) {
 		PatientInfoResponse response = null;
 		System.out.println("Entered into searchPatient");
 		// 1. Get the i/p from consumer
@@ -189,6 +208,8 @@ public class PatientInfoController  {
 		System.out.println(patient);
 	}
 
+	@RequestMapping(value = "/heathCheck", method = RequestMethod.GET, produces = "plain/text")
+	@ResponseBody
 	public String healthCheck() {
 		return "service is up and running";
 	}

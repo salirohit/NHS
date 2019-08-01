@@ -1,0 +1,13 @@
+com\nhs\patient\info\resource\impl\ObjectToJson.class
+com\nhs\patient\info\resource\util\PatientInfoUtil.class
+com\nhs\patient\info\resource\util\PatientInfoConstant.class
+com\nhs\patient\info\resource\validator\PatientInfoValidator.class
+com\nhs\patient\info\resource\exception\PatientInfoReqInvalidException.class
+com\nhs\patient\info\resource\beans\StatusBlock.class
+com\nhs\patient\info\resource\builder\PatientInfoRequestBuilder.class
+com\nhs\patient\info\resource\PatientInfoResource.class
+com\nhs\patient\info\resource\beans\PatientInfoRequest.class
+com\nhs\patient\info\resource\beans\PatientDetails.class
+com\nhs\patient\info\resource\impl\PatientInfoResourceImpl.class
+com\nhs\patient\info\resource\beans\PatientInfoResponse.class
+com\nhs\patient\info\resource\builder\PatientInfoResponseBuilder.class

@@ -1,4 +1,4 @@
-package com.nhs.patient.info.controller;
+package com.nhs.patient.info.resource.impl;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.nhs.patient.info.controller.beans.PatientInfoRequest;
+import com.nhs.patient.info.resource.beans.PatientInfoRequest;
 
 public class ObjectToJson {
 	
