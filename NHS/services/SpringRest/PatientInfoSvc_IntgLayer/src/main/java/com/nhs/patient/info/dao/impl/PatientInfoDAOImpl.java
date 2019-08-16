@@ -51,7 +51,7 @@ public class PatientInfoDAOImpl implements PatientInfoDAO {
 				daoResp.setCreateDate("10-08-2018");
 				daoResp.setCreatedBy("ADMIN");
 				daoResp.setDob("10-08-1992");
-				daoResp.setFname("Hans");
+				daoResp.setFname("sagar");
 				daoResp.setGender("Male");
 				daoResp.setId("101");
 				daoResp.setLname("Tandel");
@@ -91,7 +91,7 @@ public class PatientInfoDAOImpl implements PatientInfoDAO {
 				daoResp.setCreateDate("10-08-2018");
 				daoResp.setCreatedBy("ADMIN");
 				daoResp.setDob("10-08-1992");
-				daoResp.setFname("Hans");
+				daoResp.setFname("vasu");
 				daoResp.setGender("Male");
 				daoResp.setId("101");
 				daoResp.setLname("Tandel");
@@ -127,7 +127,7 @@ public class PatientInfoDAOImpl implements PatientInfoDAO {
 		daoResp.setCreateDate("10-08-2018");
 		daoResp.setCreatedBy("ADMIN");
 		daoResp.setDob("10-08-1992");
-		daoResp.setFname("Hans");
+		daoResp.setFname("Nara");
 		daoResp.setGender("Male");
 		daoResp.setId("101");
 		daoResp.setLname("Tandel");

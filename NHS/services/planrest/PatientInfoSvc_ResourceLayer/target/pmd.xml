@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.13.0" timestamp="2019-08-01T23:44:58.661">
+<file name="D:\Java\Project\NHS\GIT\TL\NHS\services\planrest\PatientInfoSvc_ResourceLayer\src\main\java\com\nhs\patient\info\resource\builder\PatientInfoResponseBuilder.java">
+<violation beginline="38" endline="38" begincolumn="37" endcolumn="44" rule="UnusedLocalVariable" ruleset="Best Practices" package="com.nhs.patient.info.resource.builder" class="PatientInfoResponseBuilder" method="buildPatientDetails" variable="response" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+Avoid unused local variables such as 'response'.
+</violation>
+</file>
+</pmd>

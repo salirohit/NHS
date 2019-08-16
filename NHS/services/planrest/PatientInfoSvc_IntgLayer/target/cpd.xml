@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+   <duplication lines="42" tokens="203">
+      <file line="39"
+            path="D:\Java\Project\NHS\GIT\TL\NHS\services\planrest\PatientInfoSvc_IntgLayer\src\main\java\com\nhs\patient\info\dao\impl\PatientInfoDAOImpl.java"/>
+      <file line="80"
+            path="D:\Java\Project\NHS\GIT\TL\NHS\services\planrest\PatientInfoSvc_IntgLayer\src\main\java\com\nhs\patient\info\dao\impl\PatientInfoDAOImpl.java"/>
+      <codefragment><![CDATA[	public PatientInfoDAOResponse createPatient(PatientInfoDAORequest request)throws BusinessException, SystemException {
+		// 1. Get the req from PL
+		// 2. Prepare the DB req using DAO req
+		// 3. Call DB and get the DB resp
+		System.out.println("ENTER: PatientInfoDAOImpl.createPatient()");
+		PatientInfoDAOResponse daoResp = new PatientInfoDAOResponse();
+
+		try {
+			String dbResponseCode = "0";
+			String dbResponseMsg = "success";
+
+			if ("0".equals(dbResponseCode)) {
+				daoResp.setCreateDate("10-08-2018");
+				daoResp.setCreatedBy("ADMIN");
+				daoResp.setDob("10-08-1992");
+				daoResp.setFname("Hans");
+				daoResp.setGender("Male");
+				daoResp.setId("101");
+				daoResp.setLname("Tandel");
+				daoResp.setNationalIdentifierType(null);
+				daoResp.setNationalPatientId(null);
+				daoResp.setPostalcode("396450");
+				daoResp.setRespCode(dbResponseCode);
+				daoResp.setRespMsg(dbResponseMsg);
+			} else if ("111".equals(dbResponseCode) || "112".equals(dbResponseCode) || "113".equals(dbResponseCode)) {
+				throw new BusinessException(dbResponseCode, dbResponseMsg);
+			} else {
+				throw new SystemException(dbResponseCode, dbResponseMsg);
+			}
+		} catch (BusinessException be) {
+			be.printStackTrace();
+			throw be;
+		} catch (SystemException se) {
+			se.printStackTrace();
+			throw se;
+		}
+		System.out.println("EXIT: PatientInfoDAOImpl.createPatient()");
+
+		return daoResp;
+	}
+
+	public PatientInfoDAOResponse updatePatient(PatientInfoDAORequest request)throws BusinessException, SystemException {]]></codefragment>
+   </duplication>
+   <duplication lines="41" tokens="117">
+      <file line="17"
+            path="D:\Java\Project\NHS\GIT\TL\NHS\services\planrest\PatientInfoSvc_IntgLayer\src\main\java\com\nhs\patient\info\dao\beans\PatientInfoDAORequest.java"/>
+      <file line="37"
+            path="D:\Java\Project\NHS\GIT\TL\NHS\services\planrest\PatientInfoSvc_IntgLayer\src\main\java\com\nhs\patient\info\dao\beans\PatientInfoDAOResponse.java"/>
+      <codefragment><![CDATA[	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public String getPostalcode() {
+		return postalcode;
+	}
+
+	public void setPostalcode(String postalcode) {
+		this.postalcode = postalcode;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getId() {]]></codefragment>
+   </duplication>
+   <duplication lines="41" tokens="116">
+      <file line="55"
+            path="D:\Java\Project\NHS\GIT\TL\NHS\services\planrest\PatientInfoSvc_IntgLayer\src\main\java\com\nhs\patient\info\dao\beans\PatientInfoDAORequest.java"/>
+      <file line="91"
+            path="D:\Java\Project\NHS\GIT\TL\NHS\services\planrest\PatientInfoSvc_IntgLayer\src\main\java\com\nhs\patient\info\dao\beans\PatientInfoDAOResponse.java"/>
+      <codefragment><![CDATA[	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}]]></codefragment>
+   </duplication>
+</pmd-cpd>
